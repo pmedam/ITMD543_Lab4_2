@@ -6,6 +6,10 @@ import Link from 'next/link';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 
 const Contact: React.FC = () => {
+
+    const handleMailClick = () => {
+        window.open("mailto:pmedam@hawk.iit.edu");
+    };
     return (
         <div id='contact' className='w-full lg:h-screen'>
             <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
@@ -27,12 +31,16 @@ const Contact: React.FC = () => {
                                 <p className='uppercase pt-8'>Connect With Me</p>
                                 <div className='flex items-center justify-between py-4'>
                                     <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                                        <FaLinkedinIn />
+                                        <a href="https://www.linkedin.com/in/pradeep-kumar-medam/">
+                                            <FaLinkedinIn />
+                                        </a>
                                     </div>
                                     <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                                        <FaGithub />
+                                        <a href="https://github.com/pmedam">
+                                            <FaGithub />
+                                        </a>
                                     </div>
-                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300' onClick={handleMailClick} >
                                         <AiOutlineMail />
                                     </div>
                                     <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
@@ -77,8 +85,8 @@ const Contact: React.FC = () => {
                 </div>
                 <div className='flex justify-center py-12'>
                     <Link href='/'>
-                    <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-                            <HiOutlineChevronDoubleUp  className='text-[#5651e5]'/>
+                        <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+                            <HiOutlineChevronDoubleUp className='text-[#5651e5]' />
                         </div>
                     </Link>
                 </div>

@@ -13,6 +13,10 @@ const Navbar: React.FC = () => {
         setNav(!nav);
     };
 
+    const handleMailClick = () => {
+        window.open("mailto:pmedam@hawk.iit.edu");
+      };
+
     useEffect(() => {
         const handleShadow = () => {
             if (window.scrollY >= 90) {
@@ -44,7 +48,7 @@ const Navbar: React.FC = () => {
                         </Link>
                         <Link href='/#contact'>
                             <li className='ml-10 text-sm uppercase hover:border-b'>Contact</li>
-                        </Link>                        
+                        </Link>
                     </ul>
                     <div onClick={handleNav} className='md:hidden'>
                         <AiOutlineMenu size={25} />
@@ -85,12 +89,16 @@ const Navbar: React.FC = () => {
                             <p className='uppercase tracking-widest text-[#5651e5]'>Let&apos;s Connect</p>
                             <div className='flex items-center justify-between my-4 w-full sm:w[80%]'>
                                 <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
-                                    <FaLinkedinIn />
+                                    <a href="https://www.linkedin.com/in/pradeep-kumar-medam/">
+                                        <FaLinkedinIn />
+                                    </a>
                                 </div>
                                 <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
-                                    <FaGithub />
+                                    <a href="https://github.com/pmedam">
+                                        <FaGithub />
+                                    </a>
                                 </div>
-                                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                                <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300' onClick={handleMailClick} >
                                     <AiOutlineMail />
                                 </div>
                                 <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>

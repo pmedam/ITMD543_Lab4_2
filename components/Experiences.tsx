@@ -1,24 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import dataJson from '../data/db.js';
 
 const Experiences: React.FC = () => {
   const [data, setData] = useState<any[]>([]);
-  const [dataFetched, setDataFetched] = useState(false);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://raw.githubusercontent.com/pmedam/ITMD543_JsonPlaceholder/main/db.json');
-      const responseData = response.data;
-
-      console.log(responseData);
-  
-      if (Array.isArray(responseData)) {
-        setData(responseData);
-        setDataFetched(true); // Set dataFetched to true after successfully fetching data
-      } else {
-        throw new Error('Invalid data format');
-      }
+     
+      setData(dataJson);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -42,21 +33,15 @@ const Experiences: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(data) ? (
-            data.map((entry, index) => (
-              <tr key={index}>
-                <td className="border p-2">{entry.companyName}</td>
-                <td className="border p-2">{entry.startDate}</td>
-                <td className="border p-2">{entry.endDate}</td>
-                <td className="border p-2">{entry.roleName}</td>
-                <td className="border p-2">{entry.rolesAndResponsibilities}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td className="border p-2" colSpan={5}>No data available</td>
+          {data?.length ? data?.map((entry, index) => 
+            <tr key={index}>
+              <td className="border p-2">{entry.companyName}</td>
+              <td className="border p-2">{entry.startDate}</td>
+              <td className="border p-2">{entry.endDate}</td>
+              <td className="border p-2">{entry.roleName}</td>
+              <td className="border p-2">{entry.rolesAndResponsibilities}</td>
             </tr>
-          )}
+          ) : null}
         </tbody>
       </table>
     </div>
