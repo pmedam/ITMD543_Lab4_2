@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
                             <div className=''>
                                 <h2 className='py-2'>Name Here</h2>
                                 <p>Front-End Developer</p>
-                                <p>I am available for fulltime positions. Contact me and let's talk.</p>
+                                <p>I am available for fulltime positions. Contact me and let&apos;s talk.</p>
                             </div>
                             <div>
                                 <p className='uppercase pt-8'>Connect With Me</p>
