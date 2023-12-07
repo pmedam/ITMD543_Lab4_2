@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
@@ -7,29 +7,44 @@ import { BsFillPersonLinesFill } from 'react-icons/bs';
 
 const Navbar: React.FC = () => {
     const [nav, setNav] = useState<boolean>(false);
+    const [shadow, setshadow] = useState(false)
 
     const handleNav = (): void => {
         setNav(!nav);
     };
 
+    useEffect(() => {
+        const handleShadow = () => {
+            if (window.scrollY >= 90) {
+                setshadow(true)
+            }
+            else {
+                setshadow(false)
+            }
+        };
+        window.addEventListener('scroll', handleShadow)
+    }, [])
+
     return (
-        <div className='fixed w-full h-20 shadow-xl z-[100]'>
+        <div className={shadow ? 'fixed w-full h-20 shadow-xl z-[100]' : 'fixed w-full h-20 z-[100]'}>
             <div className='flex justify-between rounded-full items-center w-full h-full px-2 2xl:px-16'>
-                <Image src="/../assets/skills/PKMLogo.png" width='80' height='40' alt="/" />
+                <Link href='/'>
+                    <Image src="/../assets/skills/PKMLogo.png" width='80' height='40' alt="/" />
+                </Link>
                 <div>
                     <ul className='hidden md:flex'>
                         <Link href='/'>
                             <li className='ml-10 text-sm uppercase hover:border-b'>Home</li>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/#about'>
                             <li className='ml-10 text-sm uppercase hover:border-b'>About</li>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/#skills'>
                             <li className='ml-10 text-sm uppercase hover:border-b'>Skills</li>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/#contact'>
                             <li className='ml-10 text-sm uppercase hover:border-b'>Contact</li>
-                        </Link>
+                        </Link>                        
                     </ul>
                     <div onClick={handleNav} className='md:hidden'>
                         <AiOutlineMenu size={25} />
@@ -40,7 +55,9 @@ const Navbar: React.FC = () => {
                 <div className={nav ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[40%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500' : 'fixed left-[-100%] top-0 w-[75%] p-10 ease-in duration-500'}>
                     <div>
                         <div className='flex w-full items-center justify-between'>
-                            <Image src='/../assets/skills/PKMLogo.png' width='80' height='40' alt='/' />
+                            <Link href='/'>
+                                <Image src='/../assets/skills/PKMLogo.png' width='80' height='40' alt='/' />
+                            </Link>
                             <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'>
                                 <AiOutlineClose />
                             </div>
@@ -52,16 +69,16 @@ const Navbar: React.FC = () => {
                     <div className='py-4 flex flex-col'>
                         <ul className='uppercase'>
                             <Link href='/'>
-                                <li className='py-4 text-sm'>Home</li>
+                                <li onClick={() => setNav(false)} className='py-4 text-sm'>Home</li>
                             </Link>
-                            <Link href='/'>
-                                <li className='py-4 text-sm'>About</li>
+                            <Link href='/#about'>
+                                <li onClick={() => setNav(false)} className='py-4 text-sm'>About</li>
                             </Link>
-                            <Link href='/'>
-                                <li className='py-4 text-sm'>Skills</li>
+                            <Link href='/#skills'>
+                                <li onClick={() => setNav(false)} className='py-4 text-sm'>Skills</li>
                             </Link>
-                            <Link href='/'>
-                                <li className='py-4 text-sm'>Contact</li>
+                            <Link href='/#contact'>
+                                <li onClick={() => setNav(false)} className='py-4 text-sm'>Contact</li>
                             </Link>
                         </ul>
                         <div className='pt-40'>

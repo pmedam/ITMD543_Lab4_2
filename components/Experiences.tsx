@@ -1,15 +1,17 @@
-import React from 'react';
-import { AiOutlineMail } from 'react-icons/ai';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import React from 'react'
+import { AiOutlineMail } from 'react-icons/ai'
+import { BsFillPersonLinesFill } from 'react-icons/bs'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import Link from 'next/link';
+import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 
-const Main: React.FC = () => {
+const Experiences: React.FC = () => {
     return (
-        <div id = 'home'className='w-full h-screen text-center'>
+        <div id = 'experience' className='w-full h-screen text-center'>
             <div className='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center'>
                 <div>
                     <p className='uppercase text-sm tracking-widest text-gray-600'>
-                        Let&apos;s Build Something Together
+                        <h1>Work Experience:</h1>
                     </p>
                     <h1 className='py-4 text-gray-600'>
                         Hi, I&apos;m <span className='text-[#5651e5]'>
@@ -42,4 +44,6 @@ const Main: React.FC = () => {
     );
 };
 
-export default Main;
+
+
+export default Experiences;
