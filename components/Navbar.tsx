@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
                     <div>
                         <div className='flex w-full items-center justify-between'>
                             <Link href='/'>
-                                <Image src='/../assets/skills/PKMLogo.png' width='80' height='40' alt='/' />
+                                <Image src='/../assets/PKMLogo.png' width='80' height='40' alt='/' />
                             </Link>
                             <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'>
                                 <AiOutlineClose />

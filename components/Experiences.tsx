@@ -1,47 +1,52 @@
 import React from 'react'
-import { AiOutlineMail } from 'react-icons/ai'
-import { BsFillPersonLinesFill } from 'react-icons/bs'
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
-import Link from 'next/link';
-import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Experiences: React.FC = () => {
-    return (
-        <div id = 'experience' className='w-full h-screen text-center'>
-            <div className='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center'>
-                <div>
-                    <p className='uppercase text-sm tracking-widest text-gray-600'>
-                        <h1>Work Experience:</h1>
-                    </p>
-                    <h1 className='py-4 text-gray-600'>
-                        Hi, I&apos;m <span className='text-[#5651e5]'>
-                            Pradeep Kumar Medam</span>
-                    </h1>
-                    <h2 className='py-2 text-gray-600'>
-                        I&apos;m a Front End Web Developer
-                    </h2>
-                    <p className='py-4 text-gray-700 max-w-[70%] m-auto'>I&apos;m a front-end developer specializing in building responsive web applications.
-                        Currently, I&apos;m focused on building responsive full-stack web applications.
-                        I&apos;m passionate about learning and creating.
-                    </p>
-                    <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
-                        <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                            <FaLinkedinIn />
-                        </div>
-                        <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                            <FaGithub />
-                        </div>
-                        <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                            <AiOutlineMail />
-                        </div>
-                        <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                            <BsFillPersonLinesFill />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+  const [data, setData] = useState<any[]>([]);
+
+  const fetchData = async () => {
+    try {
+      // const response = await axios.get('https://my-json-server.typicode.com/pmedam/ITMD543_JsonPlaceholder/data');
+      const response = await axios.get('https://github.com/pmedam/ITMD543_JsonPlaceholder/blob/main/db.json');
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  return (
+    <div id='experience' className='w-full h-screen text-center py-40'>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded mb-4"
+        onClick={fetchData}
+      >
+        Fetch Data
+      </button>
+
+      <table className="min-w-full border border-collapse border-gray-800 mb-4">
+        <thead>
+          <tr>
+            <th className="border p-2">Company Name</th>
+            <th className="border p-2">Start Date</th>
+            <th className="border p-2">End Date</th>
+            <th className="border p-2">Role Name</th>
+            <th className="border p-2">Roles and Responsibilities</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((entry, index) => (
+            <tr key={index}>
+              <td className="border p-2">{entry.companyName}</td>
+              <td className="border p-2">{entry.startDate}</td>
+              <td className="border p-2">{entry.endDate}</td>
+              <td className="border p-2">{entry.roleName}</td>
+              <td className="border p-2">{entry.rolesAndResponsibilities}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 
