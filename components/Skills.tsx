@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image
-                                    src='/../assets/skills/html5.png'
+                                    src='/../assets/html5.png'
                                     width='64'
                                     height='64'
                                     alt="/" />
@@ -26,7 +26,7 @@ const Skills: React.FC = () => {
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image
-                                    src='/../assets/skills/css.png'
+                                    src='/../assets/css.png'
                                     width='64'
                                     height='64'
                                     alt="/" />
@@ -40,7 +40,7 @@ const Skills: React.FC = () => {
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image
-                                    src='/../assets/skills/Blue_Prism_logo.png'
+                                    src='/../assets/Blue_Prism_logo.png'
                                     width='64'
                                     height='64'
                                     alt="/" />

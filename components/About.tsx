@@ -15,7 +15,7 @@ const About: React.FC = () => {
                     </Link>
                 </div>
                 <div className='w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:200 ease-in duration-300'>
-                    <img className='rounded-xl' src="/../assets/skills/professionalpic.jpeg" width = '350' height = '250' alt="" />
+                    <img className='rounded-xl' src="/../assets/professionalpic.jpeg" width = '350' height = '250' alt="" />
                 </div>
             </div>
         </div>

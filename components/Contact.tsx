@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
                     <div className='col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4'>
                         <div className='lg:p-4 h-full'>
                             <div>
-                                <img className='rounded-xl hover:scale-105 ease-in duration-300' src="/../assets/skills/contact.jpg" alt='/' />
+                                <img className='rounded-xl hover:scale-105 ease-in duration-300' src="/../assets/contact.jpg" alt='/' />
                             </div>
                             <div className=''>
                                 <h2 className='py-2'>Name Here</h2>
