@@ -25,12 +25,12 @@ const Contact: React.FC = () => {
     };
     const handleHRdetails = async (e: React.MouseEvent<HTMLFormElement>)=>{
         e.preventDefault()
-        const form = document.querySelector("form")
-        const name = form?.childNodes[0]?.childNodes[0]?.childNodes[1]?.value
-        const phoneNumber = form?.childNodes[0]?.childNodes[1]?.childNodes[1]?.value
-        const email = form?.childNodes[1]?.childNodes[1]?.value
-        const subject = form?.childNodes[2]?.childNodes[1]?.value
-        const message = form?.childNodes[3]?.childNodes[1]?.value
+        const inputs = document.querySelectorAll("input")
+        const name = inputs[0].value
+        const phoneNumber = inputs[1].value
+        const email = inputs[2].value
+        const subject = inputs[3].value
+        const message = document.querySelector("textarea")?.value
         console.log(name, phoneNumber, email, subject, message)
 
         await axios.post('http://localhost:3001', {
