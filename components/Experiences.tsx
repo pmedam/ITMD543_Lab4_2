@@ -8,7 +8,6 @@ const Experiences: React.FC = () => {
 
   const fetchData = async () => {
     try {
-     
       setData(dataJson);
     } catch (error) {
       console.error('Error fetching data:', error);

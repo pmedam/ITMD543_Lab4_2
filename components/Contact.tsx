@@ -4,12 +4,43 @@ import { BsFillPersonLinesFill } from 'react-icons/bs'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import Link from 'next/link';
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
+import axios from 'axios';
 
 const Contact: React.FC = () => {
+    // companyName: String,
+    // startDate: String,
+    // endDate: String,
+    // roleName: String,
+    // rolesAndResponsibilities: String
+    // const [name, setName] = useState('');
+    // const [phoneNumber, setPhoneNumber] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [subject, setSubject] =   useState('');
+    // const [message, setMessage] = useState('');
+
+    // const formRef = useRef<HTMLFormElement>(null)
 
     const handleMailClick = () => {
         window.open("mailto:pmedam@hawk.iit.edu");
     };
+    const handleHRdetails = async (e: React.MouseEvent<HTMLFormElement>)=>{
+        e.preventDefault()
+        const form = document.querySelector("form")
+        const name = form?.childNodes[0]?.childNodes[0]?.childNodes[1]?.value
+        const phoneNumber = form?.childNodes[0]?.childNodes[1]?.childNodes[1]?.value
+        const email = form?.childNodes[1]?.childNodes[1]?.value
+        const subject = form?.childNodes[2]?.childNodes[1]?.value
+        const message = form?.childNodes[3]?.childNodes[1]?.value
+        console.log(name, phoneNumber, email, subject, message)
+
+        await axios.post('http://localhost:3001', {
+            name,
+            phoneNumber,
+            email,
+            subject,
+            message
+        })
+    }
     return (
         <div id='contact' className='w-full lg:h-screen'>
             <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
@@ -59,11 +90,11 @@ const Contact: React.FC = () => {
                                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm py-2'>Name</label>
-                                        <input className='border-2 rounded-lg p-3 flex border-gray-300' type="text" />
+                                        <input className='border-2 rounded-lg p-3 flex border-gray-300' type="text"/>
                                     </div>
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm py-2'>Phone Number</label>
-                                        <input className='border-2 rounded-lg p-3 flex border-gray-300' type="text" />
+                                        <input className='border-2 rounded-lg p-3 flex border-gray-300' type="text"/>
                                     </div>
                                 </div>
                                 <div className='flex flex-col py-2'>
@@ -78,7 +109,7 @@ const Contact: React.FC = () => {
                                     <label className='uppercase text-sm py-2'>Message</label>
                                     <textarea className='border-2 rounded-lg p-3 border-gray-300' rows={10}></textarea>
                                 </div>
-                                <button className='w-full rounded-lg p-4 text-gray-100 mt-4'>Send Message</button>
+                                <button className='w-full rounded-lg p-4 text-gray-100 mt-4' onClick={handleHRdetails}>Send Message</button>
                             </form>
                         </div>
                     </div>
