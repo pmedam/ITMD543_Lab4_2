@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
         const message = document.querySelector("textarea")?.value
         console.log(name, phoneNumber, email, subject, message)
 
-        await axios.post('http://localhost:3001', {
+        await axios.post('https://hrdetails.azurewebsites.net/', {
             name,
             phoneNumber,
             email,
@@ -109,7 +109,7 @@ const Contact: React.FC = () => {
                                     <label className='uppercase text-sm py-2'>Message</label>
                                     <textarea className='border-2 rounded-lg p-3 border-gray-300' rows={10}></textarea>
                                 </div>
-                                <button className='w-full rounded-lg p-4 text-gray-100 mt-4' type='submit'>Send Message</button>
+                                <button className='w-full rounded-lg p-4 text-gray-100 mt-4 bg-black' type='submit'>Send Message</button>
                             </form>
                         </div>
                     </div>
